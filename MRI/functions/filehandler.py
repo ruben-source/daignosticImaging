@@ -3,6 +3,7 @@ from nibabel import save, Nifti1Image
 from os.path import join
 
 def save_nifti_image(complex_im, filename, meta_data):
+    # P3
     abs_im = np.absolute(complex_im)
 
     try:
@@ -15,14 +16,19 @@ def save_nifti_image(complex_im, filename, meta_data):
 
         
 def k2im(k_space):
+    # A1
     img = np.empty(k_space.shape, dtype='float').astype(complex)
+    
+    # Assume that the data was acquired slice by slice
     
     for i in range((k_space.shape)[2]):
         img[:,:,i] = np.fft.ifftshift(np.fft.ifft2(k_space[:,:,i]))
-
-    # img = np.fft.ifftshift(np.fft.ifftn(k_space))
     
     return img
         
-def test_func():
-    print("some stuff")
+def SENSE(folded_ims, coil_sensitivities):
+    # TODO
+    
+    img = 0 
+    
+    return img
