@@ -1,6 +1,9 @@
 import numpy as np
+import numpy.linalg as lin
 from nibabel import save, Nifti1Image
 from os.path import join
+
+from IPython.display import display
 
 def save_nifti_image(complex_im, filename, meta_data):
     # P3
@@ -28,7 +31,22 @@ def k2im(k_space):
         
 def SENSE(folded_ims, coil_sensitivities):
     # TODO
+    n = folded_ims.shape
+    Ny = int(n[0] / 2)
     
-    img = 0 
+    outputImage = np.empty(n[0:3], dtype='float')
     
-    return img
+    for img in range(n[2]): # for each image
+        for y in range(n[0]): # for each y pos
+            for x in range(n[1]): # for each x pos
+
+                C = np.array([folded_ims[y, x, img, 0], folded_ims[y, x, img, 1]])
+                S = np.array([[coil_sensitivities[y, x, img, 0], coil_sensitivities[(y + Ny) % (2*Ny - 1), x, img, 0]],
+                              [coil_sensitivities[y, x, img, 1], coil_sensitivities[(y + Ny) % (2*Ny - 1), x, img, 1]]])
+                
+                sol,_,_,_ = np.linalg.lstsq(S,np.transpose(C), rcond=-1)
+                # display(sol)
+                outputImage[y, x, img] = sol[0]
+                outputImage[(y + Ny) % (2*Ny - 1), x, img] = sol[1] 
+    
+    return outputImage
