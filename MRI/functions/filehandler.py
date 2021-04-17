@@ -37,12 +37,10 @@ def SENSE(folded_ims, coil_sensitivities):
     outputImage = np.empty(n[0:3], dtype='float')
     
     for img in range(n[2]): # for each image
-        for y in range(n[0]): # for each y pos
-            for x in range(n[1]): # for each x pos
-
-                C = np.array([folded_ims[y, x, img, 0], folded_ims[y, x, img, 1]])
-                S = np.array([[coil_sensitivities[y, x, img, 0], coil_sensitivities[(y + Ny) % (2*Ny - 1), x, img, 0]],
-                              [coil_sensitivities[y, x, img, 1], coil_sensitivities[(y + Ny) % (2*Ny - 1), x, img, 1]]])
+        for x in range(n[1]): # left - right
+            for y in range(n[0]): # top - bottom
+                C = folded_ims[y, x, img, :]
+                S = np.transpose(coil_sensitivities[[y, (y + Ny) % (2*Ny - 1)], x, img, :])
                 
                 sol,_,_,_ = np.linalg.lstsq(S,np.transpose(C), rcond=-1)
                 # display(sol)
