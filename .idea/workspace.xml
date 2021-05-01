@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d8d876f2-bad1-4da1-b799-b11d07909251" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qsgCXR2GoSA8imGouWthb13A2n" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8d876f2-bad1-4da1-b799-b11d07909251" name="Default Changelist" comment="" />
+      <created>1617873584587</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617873584587</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="813" y="-720" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617873600067">
+      <screen x="120" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="813" y="-720" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900/-1800.-1080.1920.1080/120.-1080.1920.1080@120.-1080.1920.1080" timestamp="1617873600067" />
+  </component>
+</project>
