@@ -1,8 +1,0 @@
-function back_proj = back_projection(g)
-    % back projection for all thetas, with assumed step size of 1
-    back_proj = zeros(size(g, 1), size(g, 1));
-    thetas = 1:floor(size(g,1)/N)
-    for theta = 1:size(g, 2)
-        back_proj = back_proj + back_projection_theta(g, theta);
-    end
-end

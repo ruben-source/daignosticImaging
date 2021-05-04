@@ -27,7 +27,7 @@ function FBPI = filtered_back_projection(sinogram, N, filter)
    gf = fft(sinogram);
    
    % Multiply with filter, element wise multiplication
-   g_filtered = bsxfun(@times, gf, H);
+   g_filtered = gf .* H;
    
    % Inverse Fourier to get filtered g(l, theta)
    ig_filtered = real(ifft(g_filtered));
