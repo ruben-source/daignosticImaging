@@ -1,6 +1,6 @@
 % Convolutional Backprojection with filtering (+Hamming in B3)
 
-function FBPI = conv_back_projection(sinogram, N, filter)
+function FBPI = conv_back_projection(sinogram, thetas, idx, filter)
     [gl, nt] = size(sinogram); % Get size of l component of sinogram
     mid = floor(gl / 2);    % Set the midpoint
     
@@ -13,6 +13,10 @@ function FBPI = conv_back_projection(sinogram, N, filter)
     end
     % - Filter function H
     % Add hamming here for B3, maybe switch case? Currently string input
+    
+    if nargin < 4
+        filter = 'hamming'; % set hamming as default
+    end
     
     if filter == "ramp"
         H = ramp';
@@ -30,7 +34,7 @@ function FBPI = conv_back_projection(sinogram, N, filter)
    g_filtered = convn(sinogram, c', 'same');
    
    % Use backprojection to generate the filtered image
-   FBPI = back_projection(g_filtered,N);
+   FBPI = back_projection(g_filtered,thetas, idx);
 end
     
     
