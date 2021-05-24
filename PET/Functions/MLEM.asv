@@ -11,5 +11,5 @@ function [F, r_error] = MLEM(A, G, output_size, nbr_iter)
             F(:,:, slice) = F(:,:,slice) - (r_error(k)/(A*A))*A;
         end
     end
-    r_error(nbr_iter+1) = sumsqr(A*F - G);
+    r_error(nbr_iter+1) = sumsqA*F - G); % What should the final value of r_error be?
 end

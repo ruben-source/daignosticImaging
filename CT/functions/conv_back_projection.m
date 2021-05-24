@@ -31,7 +31,7 @@ function FBPI = conv_back_projection(sinogram, thetas, idx, filter)
    c = real(ifftshift(ifft(H)));
    
    % Multiply with filter, element wise multiplication
-   g_filtered = convn(sinogram, c', 'same');
+   g_filtered = convn(sinogram, c, 'same');
    
    % Use backprojection to generate the filtered image
    FBPI = back_projection(g_filtered,thetas, idx);
