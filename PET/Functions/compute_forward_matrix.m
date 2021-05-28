@@ -14,7 +14,6 @@ function A = compute_forward_matrix(thetas, L, R, C)
             I = zeros(R, C); I(j) = 1; % only one base
             rad = radon(I, thetas(i));
             A(idx,j) = rad(floor((end/2-L/2+1):(end/2+L/2)));
-            % error("stop")
         end
     end
 
