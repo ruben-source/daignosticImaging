@@ -15,8 +15,8 @@ function [F, r_error] = MLEM(A, G, output_size, nbr_iter)
             g = G(:,:,slice);
             % g_hat_i = sum_j(a_ij*f_j)
             g_hat = A * f(:, slice);
-            r_error(k, 1) = sumsqr(g_hat - g(:));
-            
+            r_error(k) = sumsqr(g_hat - g(:));
+           
             % f = f / sum_i(a_ij) * sum_i(a_ij * g_i / g_hat_i)
             f(: , slice) = f(:, slice)./div .* (A'*(g(:)./g_hat));
         end
